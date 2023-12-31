@@ -182,7 +182,7 @@ module.exports = {
             components: rows,
           });
 
-          break;
+          return;
         } else {
           if (currentPlayer === targetUser) {
             currentPlayer = interaction.user;
@@ -200,6 +200,13 @@ module.exports = {
           });
         }
       }
+      
+      embed.setDescription(`it's a tie !!`);
+
+      await reply.edit({
+        embeds: [embed],
+        components: rows,
+      });
     } catch (error) {
       console.error(`ERROR: ${error}`);
     }
